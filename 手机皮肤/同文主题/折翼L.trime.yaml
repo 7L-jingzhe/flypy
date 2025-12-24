@@ -1,0 +1,146 @@
+# Trime default style settings
+# encoding: utf-8
+
+config_version: "for小鹤主题5.4"
+name: 折翼L
+# 本主题依附于小鹤主题使用，下面__include: 之后紧跟的就是主题名
+# 如使用本主题，小鹤主题名应为：trime.yaml；如小鹤主题名为：小鹤.trime.yaml，则需在本文件内查找“__include: trime”替换为“__include: 小鹤.trime”
+# 
+author: 散步的鹤 flypy.com #作者资讯
+height:
+# ----------键盘高度调整------------
+
+  A: &VJG 52     #主键盘行高  自定
+  C: &FVG 65     #辅助键盘行高  C=(A*5)/4=65 
+  D: &ZGH 20     #主键盘增高行高
+  E: &FJG 56     #符号键盘行高  E=(A*5+D)/5=56
+ 
+  M: &SPG 280 #3.2.6竖屏总高=A*5
+  N: &HPG 230 #3.2.6横屏总高
+  
+# ----------键盘左右下留空3.2.3------------
+
+  U: &UZYK 5  #竖屏左右留空
+  X: &UXMK 0  #竖屏下面留空
+  
+  H: &HZYK 40 #横屏左右留空
+  M: &HXMK 0 #横屏下面留空
+  
+# ----------空格行键宽度调整------------
+
+  E: &HCK 18          #回车
+  K: &KGK 37         #空格
+  S: &SBK 15          #数字标点  不允许改
+  #100=数字标点S*3+空格K+回车H
+   
+# ----------结束------------
+style:
+  __include: trime:/style
+  key_height: *FJG
+  keyboard_height: *SPG #3.2.6锁定键盘高度，避免切换时键盘高度变化而造成闪烁
+  keyboard_height_land: *HPG #3.2.6锁定横屏下键盘高度，避免切换时键盘高度变化而造成闪烁
+  keyboard_padding: *UZYK #3.2.6竖屏模式下，屏幕左右两侧与键盘的距离（曲面屏减少误触）
+  keyboard_padding_bottom: *UXMK #3.2.6竖屏模式下，屏幕下边缘与键盘的距离（避免误触发全面屏手势）
+  keyboard_padding_land: *HZYK #3.2.6横屏模式下，屏幕左右两侧与键盘的距离（避免横屏按键过度拉伸变形）
+  keyboard_padding_land_bottom: *HXMK #3.2.6横屏模式下，屏幕下侧与键盘的距离
+android_keys:
+  __include: trime:/android_keys
+liquid_keyboard:
+  __include: trime:/liquid_keyboard
+preset_keys:
+  __include: trime:/preset_keys
+  __patch:
+    K_defaultVJ:  #注销助记键盘设定键
+fallback_colors:
+  __include: trime:/fallback_colors
+preset_color_schemes:
+  __include: trime:/preset_color_schemes
+preset_keyboards:
+  __include: trime:/preset_keyboards
+  __patch:
+    defaultVJ:  #注销助记键盘
+  default:
+    __include: trime:/preset_keyboards/default
+    height: *VJG
+    __patch:
+        "keys/@before 1": {click: Shift_L, composing: Escape, swipe_down: DelH, width: *SBK, key_back_color: 789B, hilited_key_back_color: 789H, key_text_color: SHt}
+        "keys/@before 2": {click: ";", width: *SBK, key_back_color: 789B, hilited_key_back_color: 789H, key_text_color: 789T}
+        "keys/@before 3": {click: Left, width: *SBK, key_back_color: 789B, hilited_key_back_color: 789H, key_text_color: 789T}
+        "keys/@before 4": {click: Right, width: *SBK, key_back_color: 789B, hilited_key_back_color: 789H, key_text_color: 789T}
+        "keys/@before 5": {click: BackSpace, swipe_down: Candidate_switch, width: *SBK, key_back_color: 789B, hilited_key_back_color: 789H, key_text_color: 789T}
+        "keys/@before 6": {click: p, long_click: 0, key_text_color: AAT6, key_symbol_color: AAS, key_back_color: A_P, hilited_key_back_color: AAH}
+        "keys/@9": 
+        "keys/@10": 
+        "keys/@13/long_click": "-"
+        "keys/@14/long_click": "*"
+        "keys/@19": 
+        "keys/@20": 
+        "keys/@21": 
+        "keys/@29": {click: l, key_text_color: AAT1, key_symbol_color: AAS, key_back_color: A_L, hilited_key_back_color: AAH}
+        "keys/@30/key_symbol_offset_x": 0
+        "keys/@30/width": *SBK
+        "keys/@31/width": *SBK
+        "keys/@31/long_click": "!"
+        "keys/@31/composing": 
+        "keys/@31/key_symbol_offset_x": 0
+        "keys/@32": {click: space, width: *KGK, key_text_size: 9, key_text_offset_x: 0, key_text_offset_y: 3, key_symbol_offset_x: 0, key_symbol_offset_y: 6, long_click: Mode_switch, swipe_left: Left, swipe_right: Right, key_back_color: kgb, key_text_color: kgt, key_symbol_color: kgs, hilited_key_back_color: kgh, hilited_key_text_color: kght, hilited_key_symbol_color: kghs}
+        "keys/@33": {click: ".", label: "  。", width: *SBK, composing: delimiterJ, long_click: "?", key_back_color: bdb, key_text_color: bdt, key_symbol_color: bds, hilited_key_back_color: bdh, hilited_key_text_color: bdht, hilited_key_symbol_color: bdhs}
+        "keys/@34/width": *HCK
+        "keys/@34/key_symbol_offset_x": 0
+        "keys/@35/height": *ZGH
+    key_symbol_offset_x: 0
+    width: 12.5
+  letter:
+    __include: trime:/preset_keyboards/letter
+    height: *VJG
+    __patch:
+        "keys/@before 1": {click: Shift_L, width: *SBK, key_back_color: 789B, hilited_key_back_color: 789H, key_text_color: 789T}
+        "keys/@before 2": {click: ";", width: *SBK, key_back_color: 789B, hilited_key_back_color: 789H, key_text_color: 789T}
+        "keys/@before 3": {click: Left, width: *SBK, key_back_color: 789B, hilited_key_back_color: 789H, key_text_color: 789T}
+        "keys/@before 4": {click: Right, width: *SBK, key_back_color: 789B, hilited_key_back_color: 789H, key_text_color: 789T}
+        "keys/@before 5": {click: BackSpace, width: *SBK, key_back_color: 789B, hilited_key_back_color: 789H, key_text_color: 789T}
+        "keys/@before 6": {click: p, long_click: "~", key_text_color: AAT6, key_symbol_color: AAS, key_back_color: A_P, hilited_key_back_color: AAH}
+        "keys/@1/long_click": "\\"
+        "keys/@9": 
+        "keys/@10": 
+        "keys/@13/long_click": "-"
+        "keys/@14/long_click": "*"
+        "keys/@19": 
+        "keys/@20": 
+        "keys/@21": 
+        "keys/@29": {click: l, key_text_color: AAT1, key_symbol_color: AAS, key_back_color: A_L, hilited_key_back_color: AAH}
+        "keys/@30/composing": 
+        "keys/@30/width": *SBK
+        "keys/@30/key_symbol_offset_x": 0
+        "keys/@31/long_click": "!"
+        "keys/@31/composing": 
+        "keys/@31/key_symbol_offset_x": 0
+        "keys/@31/width": *SBK
+        "keys/@32/width": *KGK
+        "keys/@32/key_text_color": ykgt
+        "keys/@32/key_text_offset_x": 0
+        "keys/@32/key_symbol_offset_x": 0
+        "keys/@32/key_text_offset_y": 3
+        "keys/@32/key_back_color": kgb
+        "keys/@32/hilited_key_back_color": kgh
+        "keys/@33": {click: ".", label: " 。", composing: delimiterJ, long_click: "?", width: *SBK, key_back_color: bdb, key_text_color: bdt, key_symbol_color: bds, hilited_key_back_color: bdh, hilited_key_text_color: hbdt}
+        "keys/@34/width": *HCK
+        "keys/@34/key_symbol_offset_x": 0
+        "keys/@35/height": *ZGH
+    key_symbol_offset_x: 0
+    width: 12.5
+  number:
+    __include: trime:/preset_keyboards/number
+    height: *FVG
+    __patch:
+        "keys/@20/height": *ZGH
+  edit:
+    __include: trime:/preset_keyboards/edit
+    height: *FVG
+    __patch:
+        "keys/@20/height": *ZGH
+  menu:
+    __include: trime:/preset_keyboards/menu
+    height: *FVG
+    __patch:
+        "keys/@28/height": *ZGH
